@@ -720,14 +720,11 @@ with tab3:
             col1.write(f"**{row['date']}** — {row['text']}")
 
             if col2.button("✏️",key=i):
-
-                st.session_state.pending_edit={
-                    "id":row["id"],
-                    "summary":row["text"],
-                    "new_text":row["text"]
-                }
-
-                st.switch_page("Chat")
+                st.session_state.pending_edit = {
+                "id": row["id"],
+                "summary": row["text"],
+                "new_text": row["text"]}
+                st.rerun()
 
     else:
 
