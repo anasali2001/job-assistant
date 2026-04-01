@@ -17,7 +17,7 @@ load_dotenv()
 # 1. PAGE CONFIG & PREMIUM CSS
 # ==========================================
 st.set_page_config(
-    page_title="ubl Assistant", 
+    page_title="CCRIPT Assistant", 
     page_icon="🧠", 
     layout="wide",
     initial_sidebar_state="collapsed" # Collapsed until logged in
@@ -58,7 +58,7 @@ def check_password():
         st.error("⛔ Incorrect Password")
 
 if not st.session_state.authenticated:
-    st.markdown("<h1 style='text-align: center;'>🧠 ubl Brain Login</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>🧠 CCRIPT Brain Login</h1>", unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1,1,1])
     with col2:
@@ -78,7 +78,7 @@ if not OPENROUTER_API_KEY or not PINECONE_API_KEY:
 
 # LLM_MODEL = "google/gemini-2.0-flash-lite-preview-02-05:free"
 LLM_MODEL = "moonshotai/kimi-k2"
-INDEX_NAME = "ubl-brain"
+INDEX_NAME = "CCRIPT-brain"
 
 @st.cache_resource(show_spinner=False)
 def init_services():
@@ -86,7 +86,7 @@ def init_services():
     llm = OpenAI(
         base_url="https://openrouter.ai/api/v1",
         api_key=OPENROUTER_API_KEY,
-        default_headers={"HTTP-Referer": "https://ubl-brain.streamlit.app", "X-Title": "ubl Brain"}
+        default_headers={"HTTP-Referer": "https://ubl-brain.streamlit.app", "X-Title": "CCRIPT Brain"}
     )
     
     # 2. Embeddings (Runs in memory)
@@ -195,7 +195,7 @@ def analyze_intent(query, project_filter=None):
 
 # Sidebar (Only visible after login)
 with st.sidebar:
-    st.title("🧠 ubl Brain")
+    st.title("🧠 CCRIPT Brain")
     if st.button("Logout"):
         st.session_state.authenticated = False
         st.rerun()
